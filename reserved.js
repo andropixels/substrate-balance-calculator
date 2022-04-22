@@ -40,18 +40,18 @@ function toUnit(balance) {
 }
 
 // Connect to Substrate endpoint
-async function connect() {
-	let endpoint = document.getElementById('endpoint').value;
-	if (!window.substrate || global.endpoint != endpoint) {
-		const provider = new WsProvider(endpoint);
-		log.innerHTML = 'Connecting to Endpoint...';
-		window.substrate = await ApiPromise.create({ provider });
-		global.endpoint = endpoint;
-		global.chainDecimals = substrate.registry.chainDecimals;
-		global.chainToken = substrate.registry.chainTokens[0];
-		log.innerHTML = 'Connected';
-	}
-}
+// async function connect() {
+// 	let endpoint = document.getElementById('endpoint').value;
+// 	if (!window.substrate || global.endpoint != endpoint) {
+// 		const provider = new WsProvider(endpoint);
+// 		log.innerHTML = 'Connecting to Endpoint...';
+// 		window.substrate = await ApiPromise.create({ provider });
+// 		global.endpoint = endpoint;
+// 		global.chainDecimals = substrate.registry.chainDecimals;
+// 		global.chainToken = substrate.registry.chainTokens[0];
+// 		log.innerHTML = 'Connected';
+// 	}
+// }
 
 async function getDemocracyReserved() {
 	if (!substrate.query.democracy) {
